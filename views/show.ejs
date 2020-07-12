@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/jumb.ejs') %>
+
+    <a class="btn btn-danger" id="del" data-doc="<%= id %>" href="#" role="button"> DELETE <i class="fa fa-trash"
+            style="color: white;" aria-hidden="true"></i></a>
+
+    <%- include('./partials/additional.ejs') %>
+    <script>
+        var del = document.getElementById('del')
+        del.addEventListener('click', (e) => {
+            const endpoint = '/blogs/blog/' + del.dataset.doc;
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    window.location.href = data.redirect
+                })
+                .catch((err) => console.log(err));
+        });
+    </script>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

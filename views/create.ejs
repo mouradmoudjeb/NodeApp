@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/jumb.ejs') %>
+    <section>
+        <form class="col-md-3 text-center" method="POST" action="/blogs/add-blog" id="myform">
+            <div class="form-group">
+                <input type="text" class="form-control" name="title" aria-describedby="helpId" placeholder="Title">
+                <input type="text" class="form-control" name="snippet" aria-describedby="helpId" placeholder="Snippet">
+                <textarea class="form-control" id="contentbox" name="body" rows="3" placeholder="Body"></textarea>
+                <button type="submit" class="btn btn-dark" style="margin-top: 10px;">Submit</button>
+            </div>
+        </form>
+    </section>
+    <%- include('./partials/additional.ejs') %> 
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

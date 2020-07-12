@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/jumb.ejs') %>
+
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <a class="btn btn-dark" href="/blogs/create-new-blog" role="button">Create new blog <i class="fa fa-plus"
+                    style="color: white; margin-left: 5px;" aria-hidden="true"></i></a>
+        </div>
+        <div class="col-md-10">
+            <div class="blogdiv">
+                <% if (blogs.lenght != 0) { %>
+                <% blogs.forEach(blog => { %>
+                <div class="card" id="blogCard">
+                    <div class="card">
+                        <h1 class="card-header">
+                            <a id="showblog" href="/blogs/blog/<%=blog._id%>"> <%= blog.title%></a>
+                        </h1>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p> <%= blog.snippet %> </p>
+                                <footer class="blockquote-footer"> <%= blog.body %></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <h2>There is no blogs for the moment !</h2>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/additional.ejs') %>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+
+
+</html>
